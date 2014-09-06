@@ -1,24 +1,59 @@
 
-<h2>Login Page</h2>
 
-<form>
-    <label>
-        <span>email</span>
-        <input type="text" ng-model="email" />
-    </label>
-    <label>
-        <span>password</span>
-        <input type="password" ng-model="pass" />
-    </label>
-    <label ng-cloak ng-show="createMode">
-        <span>confirm pass</span>
-        <input type="password" ng-model="confirm" />
-    </label>
-    <button ng-click="login(email, pass)" ng-hide="createMode">Log In</button>
-    <button ng-click="createMode = true" ng-hide="createMode">Register</button>
-    <button ng-cloak ng-show="createMode" ng-click="createAccount(email, pass, confirm)">Create Account</button>
-    <button ng-cloak ng-show="createMode" ng-click="createMode = false">Cancel</button>
 
-    <p ng-show="err" class="error">{{err}}</p>
-</form>
+<div class="row">
+    <div class="col-sm-offset-3 col-sm-6">
+        <div class="well">
+            <form class="form-horizontal">
+                <fieldset>
+                    <legend>Login - Registrer</legend>
+                    <div class="form-group">
+                        <label for="inputEmail" class="col-lg-2 control-label">Email</label>
+
+                        <div class="col-lg-10">
+                            <input type="text" ng-model="email" class="form-control" id="inputEmail"
+                                   placeholder="Email" data-cip-id="inputEmail" autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword" class="col-lg-2 control-label">Password</label>
+
+                        <div class="col-lg-10">
+                            <input type="password" ng-model="pass" class="form-control" id="inputPassword"
+                                   placeholder="Password" data-cip-id="inputPassword">
+                        </div>
+                    </div>
+                    <div class="form-group" ng-cloak ng-show="createMode">
+                        <label for="confirmPassword" class="col-lg-2 control-label"  >Confirm Password</label>
+
+                        <div class="col-lg-10">
+                            <input type="password" ng-model="confirm" class="form-control" id="confirmPassword"
+                                   placeholder="Confirm Password" data-cip-id="confirmPassword">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-lg-10 col-lg-offset-2">
+                            <button ng-hide="createMode" ng-click="createMode = true" class="btn btn-default">Registrer ny bruger</button>
+                            <button ng-click="login(email,pass)" ng-hide="createMode" class="btn btn-primary">Login</button>
+                            <button ng-cloak ng-show="createMode" ng-click="createAccount(email, pass, confirm)" class="btn">Create Account</button>
+                            <button ng-cloak ng-show="createMode" ng-click="createMode = false" class="btn">Cancel</button>
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-lg-10 col-lg-offset-2">
+                            <button ng-click="testLogin()" class="btn">TestLogin</button>
+                            <button ng-click="redirect()" class="btn">Redirect</button>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+            <p ng-show="err" class="error">{{err}}</p>
+        </div>
+    </div>
+</div>
+
+
+
 
